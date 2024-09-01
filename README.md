@@ -68,3 +68,16 @@ bel(x_0) = p(x_0) = det(2 \pi \Sigma_0)^{-1/2} \cdot exp({-1/2(x_0 - \mu_0)^T \S
 ### Pseudo code for the linear Kalman Filter
 
 ![Screenshot from 2024-09-01 19-43-38](https://github.com/user-attachments/assets/4a8e4382-ee59-44e7-bed2-d574f078fe8f)
+
+Kalman filters represent the
+belief $bel(x_t)$ at time $t$ by the mean $μ_t$ and the covariance $Σ_t$. The input of the Kalman
+filter is the belief at time $t − 1$, represented by $μ_{t−1}$ and $Σ_{t−1}$. To update these
+parameters, Kalman filters require the control $u_t$ and the measurement $z_t$. The output
+is the belief at time $t$, represented by $μ_t$ and $Σ_t$.
+
+The Kalman Filter consists of two steps which are:
+* ###  The prediction Step
+    in Lines 2 and 3, the predicted belief $\overline μ_t$ and $\overline Σ_t$ is calculated representing the belief
+$bel(xt)$ one time step later, but before incorporating the measurement $z_t$. This belief is obtained by incorporating the control ut. The mean is updated using the deterministic version of the state transition function , with the mean $μ_{t−1}$ substituted for the state $x_{t−1}$. The update of the covariance considers the fact that states depend on previous states through the linear matrix $A_t$. This matrix is multiplied twice into the covariance, since the covariance is a quadratic matrix.
+* ### The Correction Step
+    The belief $bel(x_t)$ is subsequently transformed into the desired belief $bel(x_t)$ in Lines 4 through 6, by incorporating the measurement $z_t$. The variable $K_t$, computed in Line 4 is called Kalman gain. It specifies the degree to which the measurement is incorporated into the new state estimate. Line 5 manipulates the mean, by adjusting it in proportion to the Kalman gain Kt and the deviation of the actual measurement, $z_t$, and the measurement predicted according to the measurement probability function. Finally, the new covariance of the posterior belief is calculated in Line 6, adjusting for the information gain resulting from the measurement.
