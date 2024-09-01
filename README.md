@@ -34,7 +34,7 @@ The correction step (Update Step) depends on the predicted belief as well as the
 The Kalman Filter represents beliefs by the moments parametrization, the belief is represented by the mean $\mu_t$ and the covariance $\Sigma_t$ 
 
 The linear Kalman Filter only deal with linear and Gaussian cases so to say that the Posteriors are Gaussian three properties must be satisfied which are:
-* The state transation probability p($x_t$ | $u_t$,$x_{t-1}$)
+* The state transation probability p($x_t$ | $u_t$, $x_{t-1}$ )
 must be a linear function in it's arguments with added Gaussian Noise this is expressed by the following equation 
 ```math
 x_t = A_tx_{t-1} + B_tu_t + \epsilon_t
@@ -81,3 +81,5 @@ The Kalman Filter consists of two steps which are:
 $bel(xt)$ one time step later, but before incorporating the measurement $z_t$. This belief is obtained by incorporating the control ut. The mean is updated using the deterministic version of the state transition function , with the mean $μ_{t−1}$ substituted for the state $x_{t−1}$. The update of the covariance considers the fact that states depend on previous states through the linear matrix $A_t$. This matrix is multiplied twice into the covariance, since the covariance is a quadratic matrix.
 * ### The Correction Step
     The belief $bel(x_t)$ is subsequently transformed into the desired belief $bel(x_t)$ in Lines 4 through 6, by incorporating the measurement $z_t$. The variable $K_t$, computed in Line 4 is called Kalman gain. It specifies the degree to which the measurement is incorporated into the new state estimate. Line 5 manipulates the mean, by adjusting it in proportion to the Kalman gain Kt and the deviation of the actual measurement, $z_t$, and the measurement predicted according to the measurement probability function. Finally, the new covariance of the posterior belief is calculated in Line 6, adjusting for the information gain resulting from the measurement.
+
+## Example on the linear Kalman filter
