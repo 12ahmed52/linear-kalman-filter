@@ -10,6 +10,9 @@ The Bayes Filter is the most general algorithm for calculating beliefs.\
 The Algorithm Calculates the belief distribution from measurment(z) and control data(u).\
 ### Pseudo Code for the Bayes Filter:
 
+![Pseudo-Code-for-Discrete-Bayesian-Filter](https://github.com/user-attachments/assets/e2180826-60a0-4bbb-b01b-b0dcc7c2f450)
+
+
 
 The Bayes Filter consists of two steps to calculate the current belief of a state
 
