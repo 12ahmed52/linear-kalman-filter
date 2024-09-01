@@ -66,3 +66,5 @@ bel(x_0) = p(x_0) = det(2 \pi \Sigma_0)^{-1/2} \cdot exp({-1/2(x_0 - \mu_0)^T \S
 ```
 
 ### Pseudo code for the linear Kalman Filter
+
+![Screenshot from 2024-09-01 19-43-38](https://github.com/user-attachments/assets/4a8e4382-ee59-44e7-bed2-d574f078fe8f)
